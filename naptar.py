@@ -1,8 +1,8 @@
 from tkinter import *
 import calendar
-root = Tk()
+'''root = Tk()
 
-menubar = Menu(root)
+menubar = ablak1(root)
 
 Kezdőoldalmenu = Menu(menubar, tearoff=0)
 
@@ -34,6 +34,7 @@ jelszogen=Menu(menubar, tearoff=0)
 naptar=Menu(menubar, tearoff=0)
 
 irakiora=Menu(menubar, tearoff=0)
+'''
 def showCal():
     uj_ablak=Tk()
     uj_ablak.config (background="white")
@@ -56,15 +57,13 @@ if __name__ == "__main__" :
 
     ablak1.geometry("250x150")
 
-    napt = Label(ablak1, text="NAPTAR", bg= "dark gray", font= ("times", 28, "bold"))
-
     ev = Label(ablak1, text="adj meg 1 evszamot")
 
     ev_mezo=Entry(ablak1)
 
     szamitasgomb=Button(ablak1, text= "Mutasd a naptarat", command= showCal)
-    napt.grid(row=1, column=1)
-    ev.grid(row=2, column=1)
-    ev_mezo.grid(row=3, column=1)
-    szamitasgomb.grid(row=4, column=1)
+    ev.grid(row=1, column=1)
+    ev_mezo.grid(row=2, column=1)
+    szamitasgomb.grid(row=3, column=1)
+    
     ablak1.mainloop()
