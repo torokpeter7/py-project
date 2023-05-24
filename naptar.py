@@ -23,15 +23,14 @@ if __name__ == "__main__" :
 
     ablak1.geometry("250x150")
 
-    napt = Label(ablak1, text="NAPTAR", bg= "dark gray", font= ("times", 28, "bold"))
 
-    ev = Label(ablak1, text="adj meg 1 evszamot")
+
+    ev = Label(ablak1, text="Adj meg 1 evszamot")
 
     ev_mezo=Entry(ablak1)
 
     szamitasgomb=Button(ablak1, text= "Mutasd a naptarat", command= showCal)
-    napt.grid(row=1, column=1)
-    ev.grid(row=2, column=1)
-    ev_mezo.grid(row=3, column=1)
-    szamitasgomb.grid(row=4, column=1)
+    ev.grid(row=1, column=1)
+    ev_mezo.grid(row=2, column=1)
+    szamitasgomb.grid(row=3, column=1)
     ablak1.mainloop()
