@@ -1,6 +1,40 @@
 from tkinter import *
 import calendar
+'''root = Tk()
 
+menubar = ablak1(root)
+
+Kezdőoldalmenu = Menu(menubar, tearoff=0)
+
+menubar.add_cascade(label="Kezdőooldal")
+
+menubar.add_cascade(label="Akasztófa")
+
+menubar.add_cascade(label="Valuta Váltó")
+
+menubar.add_cascade(label="Valorant Line-up Guide")
+
+menubar.add_cascade(label="QR kód generátor")
+
+menubar.add_cascade(label="Jelszó generátor")
+
+
+aksztofa=menubar.add_cascade(label="Iraki óra")
+
+akszto=Menu(menubar, tearoff=0)
+
+valuta=Menu(menubar, tearoff=0)
+
+valolineup=Menu(menubar, tearoff=0)
+
+qrkodgen=Menu(menubar, tearoff=0)
+
+jelszogen=Menu(menubar, tearoff=0)
+
+naptar=Menu(menubar, tearoff=0)
+
+irakiora=Menu(menubar, tearoff=0)
+'''
 def showCal():
     uj_ablak=Tk()
     uj_ablak.config (background="white")
@@ -23,9 +57,7 @@ if __name__ == "__main__" :
 
     ablak1.geometry("250x150")
 
-
-
-    ev = Label(ablak1, text="Adj meg 1 evszamot")
+    ev = Label(ablak1, text="adj meg 1 evszamot")
 
     ev_mezo=Entry(ablak1)
 
@@ -33,4 +65,5 @@ if __name__ == "__main__" :
     ev.grid(row=1, column=1)
     ev_mezo.grid(row=2, column=1)
     szamitasgomb.grid(row=3, column=1)
+    
     ablak1.mainloop()
