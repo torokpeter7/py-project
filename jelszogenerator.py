@@ -1,10 +1,33 @@
 from tkinter import *
 import tkinter
 import random
+import tkinter as tk
 
 ablak1 = tkinter.Tk()
 ablak1.title("Jelszó generátor")
-ablak1.geometry('450x360') 
+ablak1.geometry("680x400")
+
+menubar = Menu(ablak1)
+Kezdőoldalmenu = Menu(menubar, tearoff=0)
+menubar.add_cascade(label="Kezdőoldal")
+menubar.add_cascade(label="Akasztófa")
+menubar.add_cascade(label="Valuta Váltó")
+menubar.add_cascade(label="Valorant Line-up Guide")
+menubar.add_cascade(label="QR kód generátor")
+menubar.add_cascade(label="Jelszó generátor")
+menubar.add_cascade(label="Naptár")
+aksztofa=menubar.add_cascade(label="Iraki óra")
+akszto=Menu(menubar, tearoff=0)
+valuta=Menu(menubar, tearoff=0)
+valolineup=Menu(menubar, tearoff=0)
+qrkodgen=Menu(menubar, tearoff=0)
+jelszogen=Menu(menubar, tearoff=0)
+naptar=Menu(menubar, tearoff=0)
+irakiora=Menu(menubar, tearoff=0)
+elsomondat=Label(ablak1, text="Üdvözlünk az alkalmazásunkban ami tele van minden-féle jósággal!")
+masodikmondat=Label(ablak1, text="Akasztófa, Valuta váltó, Valorant Line-up Guide, QR kód generátor, Jelszó generátor, Naptár és egy kis meglepetés")
+harmadikmondat=Label(ablak1, text="Válassz a menüpontok között és kezdd meg a világmegváltást még ma!")
+ablak1.config(menu=menubar)
 
 cond1 = IntVar()
 cond2 = IntVar()
@@ -63,7 +86,7 @@ chkbutton_1 = tkinter.Checkbutton(ablak1, text='Számok', variable=cond1, onvalu
 chkbutton_2 = tkinter.Checkbutton(ablak1, text='Speciális karakterek', variable=cond2, onvalue=1, offvalue=0)
 chkbutton_3 = tkinter.Checkbutton(ablak1, text='Kisbetűk', variable=cond3, onvalue=1, offvalue=0)
 chkbutton_4 = tkinter.Checkbutton(ablak1, text='Nagybetűk', variable=cond4, onvalue=1, offvalue=0)
-slider_1 = tkinter.Scale(ablak1, variable=length, orient=HORIZONTAL, label="Set length of password", length=130,from_=8, to=30)
+slider_1 = tkinter.Scale(ablak1, variable=length, orient=HORIZONTAL, label="Jelszó hossza", length=130,from_=8, to=30)
 button_1 = tkinter.Button(ablak1, text="Jelszó generálása", command=display_password)
 
 chkbutton_1.pack()
