@@ -39,7 +39,7 @@ def showCal():
     uj_ablak=Tk()
     uj_ablak.config (background="white")
     uj_ablak.title("NAPTAR")
-    uj_ablak.geometry("550x600")
+    uj_ablak.geometry("1000x1000")
     visszaadhato_ev = int(ev_mezo.get())
     naptar_content=calendar.calendar(visszaadhato_ev)
     naptari_ev=Label(uj_ablak, text=naptar_content)
@@ -55,7 +55,7 @@ if __name__ == "__main__" :
 
     ablak1.title("NAPTAR")
 
-    ablak1.geometry("250x150")
+    ablak1.geometry("150x150")
 
     ev = Label(ablak1, text="adj meg 1 evszamot")
 
