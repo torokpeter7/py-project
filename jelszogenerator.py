@@ -29,6 +29,8 @@ masodikmondat=Label(ablak1, text="Akasztófa, Valuta váltó, Valorant Line-up G
 harmadikmondat=Label(ablak1, text="Válassz a menüpontok között és kezdd meg a világmegváltást még ma!")
 ablak1.config(menu=menubar)
 
+
+
 cond1 = IntVar()
 cond2 = IntVar()
 cond3 = IntVar()
@@ -68,13 +70,13 @@ def password():
 
 pswrd = StringVar()
 pswrd.set(password())
-txt_1 = tkinter.Label(ablak1, textvariable=pswrd, font=("ComicSansMS", 14))
+txt_1 = tkinter.Entry(ablak1, textvariable=pswrd, font=("ComicSansMS", 14))
 
 def display_password():
     global txt_1
     txt_1.pack_forget()
     pswrd.set(password())
-    txt_1 = tkinter.Label(ablak1, textvariable=pswrd, font=("ComicSansMS", 14))
+    txt_1 = tkinter.Entry(ablak1, show='*', textvariable=pswrd, font=("ComicSansMS", 14))
     txt_1.pack()
 
 label_1 = tkinter.Label(ablak1, text="\nJelszó Generátor", font=("ComicSansMS", 20))
@@ -88,6 +90,7 @@ chkbutton_3 = tkinter.Checkbutton(ablak1, text='Kisbetűk', variable=cond3, onva
 chkbutton_4 = tkinter.Checkbutton(ablak1, text='Nagybetűk', variable=cond4, onvalue=1, offvalue=0)
 slider_1 = tkinter.Scale(ablak1, variable=length, orient=HORIZONTAL, label="Jelszó hossza", length=130,from_=8, to=30)
 button_1 = tkinter.Button(ablak1, text="Jelszó generálása", command=display_password)
+button_2 = tkinter.Button(ablak1, text="Jelszó másolás [Még nem működik]")
 
 chkbutton_1.pack()
 chkbutton_2.pack()
