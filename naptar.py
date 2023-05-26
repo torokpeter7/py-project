@@ -42,7 +42,7 @@ def showCal():
     uj_ablak.geometry("1000x1000")
     visszaadhato_ev = int(ev_mezo.get())
     naptar_content=calendar.calendar(visszaadhato_ev)
-    naptari_ev=Label(uj_ablak, text=naptar_content)
+    naptari_ev=Label(uj_ablak, text=naptar_content, font="Consolas 10 bold")
     naptari_ev.grid(row=5, column=1, padx=20)
     uj_ablak.mainloop()
 
@@ -55,7 +55,7 @@ if __name__ == "__main__" :
 
     ablak1.title("NAPTAR")
 
-    ablak1.geometry("150x150")
+    ablak1.geometry("250x140")
 
     ev = Label(ablak1, text="adj meg 1 evszamot")
 
