@@ -43,6 +43,7 @@ list_2 = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 
 list_3 = ['!', '@', '#', '$', '%', '^', "&", "*"]
 list_4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
+#Jelszó legenerálása
 def password():
     final_list = []
     ln = length.get()
@@ -76,8 +77,9 @@ def display_password():
     global txt_1
     txt_1.pack_forget()
     pswrd.set(password())
-    txt_1 = tkinter.Entry(ablak1, show='*', textvariable=pswrd, font=("ComicSansMS", 14))
+    txt_1 = tkinter.Entry(ablak1, textvariable=pswrd, font=("ComicSansMS", 14), width=37, justify=CENTER)
     txt_1.pack()
+
 
 label_1 = tkinter.Label(ablak1, text="\nJelszó Generátor", font=("ComicSansMS", 20))
 label_2 = tkinter.Label(ablak1, text = "Legalább két obciót válassz ki! \n", font=("ComicSansMS", 10))
