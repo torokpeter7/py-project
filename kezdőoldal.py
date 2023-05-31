@@ -1,5 +1,5 @@
 from tkinter import *
-from PIL import ImageTk, Image  
+from PIL import Image, ImageTk
 
 
 root = Tk()
@@ -22,12 +22,15 @@ qrkodgen=Menu(menubar, tearoff=0)
 jelszogen=Menu(menubar, tearoff=0)
 naptar=Menu(menubar, tearoff=0)
 irakiora=Menu(menubar, tearoff=0)
-elsomondat=Label(root, text="Üdvözlünk az alkalmazásunkban ami tele van minden-féle jósággal!")
-masodikmondat=Label(root, text="Akasztófa, Valuta váltó, Valorant Line-up Guide, QR kód generátor, Jelszó generátor, Naptár és egy kis meglepetés")
-harmadikmondat=Label(root, text="Válassz a menüpontok között és kezdd meg a világmegváltást még ma!")
+elsomondat=Label(root, text="Üdvözlünk az alkalmazásunkban ami tele van minden-féle jósággal!", font=("Arial", 14,""))
+masodikmondat=Label(root, text="Akasztófa, Valuta váltó, Valorant Line-up Guide, QR kód generátor,\n Jelszó generátor, Naptár és egy kis meglepetés", font=("Arial", 12,""))
+harmadikmondat=Label(root, text="Válassz a menüpontok között és kezdd meg a világmegváltást még ma!", font=("Arial", 12,""))
 elsomondat.pack()
-masodikmondat.place(x=35, y=124)
-harmadikmondat.place(x=150, y=234)
-logo=Image.open("")
+masodikmondat.place(x=95, y=124)
+harmadikmondat.place(x=80, y=214)
+logo=Image.open("Névtelen.png")
+test = ImageTk.PhotoImage(logo)
+label1 = Label(image=test)
+label1.place(x=262, y=250)
 root.config(menu=menubar)
 root.mainloop()
