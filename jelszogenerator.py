@@ -5,7 +5,7 @@ import tkinter as tk
 
 ablak1 = tkinter.Tk()
 ablak1.title("Jelszó generátor")
-ablak1.geometry("680x400")
+ablak1.geometry("665x400")
 
 menubar = Menu(ablak1)
 Kezdőoldalmenu = Menu(menubar, tearoff=0)
@@ -24,9 +24,6 @@ qrkodgen=Menu(menubar, tearoff=0)
 jelszogen=Menu(menubar, tearoff=0)
 naptar=Menu(menubar, tearoff=0)
 irakiora=Menu(menubar, tearoff=0)
-elsomondat=Label(ablak1, text="Üdvözlünk az alkalmazásunkban ami tele van minden-féle jósággal!")
-masodikmondat=Label(ablak1, text="Akasztófa, Valuta váltó, Valorant Line-up Guide, QR kód generátor, Jelszó generátor, Naptár és egy kis meglepetés")
-harmadikmondat=Label(ablak1, text="Válassz a menüpontok között és kezdd meg a világmegváltást még ma!")
 ablak1.config(menu=menubar)
 
 
