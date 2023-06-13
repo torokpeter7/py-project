@@ -1,18 +1,46 @@
 from tkinter import *
 import calendar
-ablak1 = Tk()
-ablak1.geometry("665x400")
-ablak1.resizable(height=False, width=False)
-menubar = Menu(ablak1)
+import subprocess
+
+def kezdooldal_menu_button_press():
+    subprocess.Popen(args=['python', r'kezdőoldal.py'])
+    ablak.destroy()
+def akasztofa_menu_button_press():
+    subprocess.Popen(args=['python', r'akasztofa.py'])
+    ablak.destroy()
+def valuta_menu_button_press():
+    subprocess.Popen(args=['python', r'valutavalto.py'])
+    ablak.destroy()
+def valorant_menu_button_press():
+    subprocess.Popen(args=['python', r'valorantguide.py'])
+    ablak.destroy()
+def qrcode_menu_button_press():
+    subprocess.Popen(args=['python', r'qrcodegen.py'])
+    ablak.destroy()
+def jelszo_menu_button_press():
+    subprocess.Popen(args=['python', r'jelszogenerator.py'])
+    ablak.destroy()
+def naptar_menu_button_press():
+      subprocess.Popen(args=['python', r'naptar.py'])
+      ablak.destroy()
+def iraki_menu_button_press():
+    subprocess.Popen(args=['python', r'iraki_ora.py'])
+    ablak.destroy()
+
+
+ablak = Tk()
+ablak.geometry("665x400")
+ablak.resizable(height=False, width=False)
+menubar = Menu(ablak)
 Kezdőoldalmenu = Menu(menubar, tearoff=0)
-menubar.add_cascade(label="Kezdőoldal")
-menubar.add_cascade(label="Akasztófa")
-menubar.add_cascade(label="Valuta Váltó")
-menubar.add_cascade(label="Valorant Line-up Guide")
-menubar.add_cascade(label="QR kód generátor")
-menubar.add_cascade(label="Jelszó generátor")
-menubar.add_cascade(label="Naptár")
-aksztofa=menubar.add_cascade(label="Iraki óra")
+menubar.add_cascade(label="Kezdőoldal", command=kezdooldal_menu_button_press)
+menubar.add_cascade(label="Akasztófa", command=akasztofa_menu_button_press)
+menubar.add_cascade(label="Valuta Váltó", command=valuta_menu_button_press)
+menubar.add_cascade(label="Valorant Line-up Guide", command=valorant_menu_button_press)
+menubar.add_cascade(label="QR kód generátor", command=qrcode_menu_button_press)
+menubar.add_cascade(label="Jelszó generátor", command=jelszo_menu_button_press)
+menubar.add_cascade(label="Naptár", command=naptar_menu_button_press)
+menubar.add_cascade(label="Iraki óra", command=iraki_menu_button_press)
 akszto=Menu(menubar, tearoff=0)
 valuta=Menu(menubar, tearoff=0)
 valolineup=Menu(menubar, tearoff=0)
@@ -36,18 +64,18 @@ def showCal():
 
 if __name__ == "__main__" :
 
-    ablak1.config(background="white")
+    ablak.config(background="white")
 
-    ablak1.title("NAPTAR")
+    ablak.title("NAPTAR")
 
-    ev = Label(ablak1, text="Adj meg 1 evszamot")
+    ev = Label(ablak, text="Adj meg 1 evszamot")
 
-    ev_mezo=Entry(ablak1)
+    ev_mezo=Entry(ablak)
 
-    szamitasgomb=Button(ablak1, text= "Mutasd a naptarat", command= showCal)
+    szamitasgomb=Button(ablak, text= "Mutasd a naptarat", command= showCal)
     ev.pack()
     ev_mezo.pack()
     szamitasgomb.pack()
-    ablak1.config(menu=menubar)
+    ablak.config(menu=menubar)
     
-    ablak1.mainloop()
+    ablak.mainloop()

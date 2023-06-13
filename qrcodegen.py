@@ -4,6 +4,7 @@ from tkinter.messagebox import showinfo, showerror, askyesno
 from tkinter import filedialog as fd 
 import qrcode
 import cv2
+import subprocess
 
 def generate_qrcode():
     qrcode_data = str(data_entry.get())
@@ -53,20 +54,44 @@ def detect_qrcode():
             showerror(title='Hiba', message='Hiba lépett fel a fájl keresésekor' \
                    '\nA következő lehet ' \
                     'a hiba:\n->Rossz képfájl\n' \
-                    'Adjon meg egy valódi QR kód képfájlt!')
+                    'Adjon meg egy valódi képfájlt!')
+def kezdooldal_menu_button_press():
+    subprocess.Popen(args=['python', r'kezdőoldal.py'])
+    ablak.destroy()
+def akasztofa_menu_button_press():
+    subprocess.Popen(args=['python', r'akasztofa.py'])
+    ablak.destroy()
+def valuta_menu_button_press():
+    subprocess.Popen(args=['python', r'valutavalto.py'])
+    ablak.destroy()
+def valorant_menu_button_press():
+    subprocess.Popen(args=['python', r'valorantguide.py'])
+    ablak.destroy()
+def qrcode_menu_button_press():
+    subprocess.Popen(args=['python', r'qrcodegen.py'])
+    ablak.destroy()
+def jelszo_menu_button_press():
+    subprocess.Popen(args=['python', r'jelszogenerator.py'])
+    ablak.destroy()
+def naptar_menu_button_press():
+      subprocess.Popen(args=['python', r'naptar.py'])
+      ablak.destroy()
+def iraki_menu_button_press():
+    subprocess.Popen(args=['python', r'iraki_ora.py'])
+    ablak.destroy()
 ablak=Tk()
 ablak.geometry("665x400")
 ablak.title("Iraki óra")
 menubar = Menu(ablak)
 Kezdőoldalmenu = Menu(menubar, tearoff=0)
-menubar.add_cascade(label="Kezdőoldal")
-menubar.add_cascade(label="Akasztófa")
-menubar.add_cascade(label="Valuta Váltó")
-menubar.add_cascade(label="Valorant Line-up Guide")
-menubar.add_cascade(label="QR kód generátor")
-menubar.add_cascade(label="Jelszó generátor")
-menubar.add_cascade(label="Naptár")
-aksztofa=menubar.add_cascade(label="Iraki óra")
+menubar.add_cascade(label="Kezdőoldal", command=kezdooldal_menu_button_press)
+menubar.add_cascade(label="Akasztófa", command=akasztofa_menu_button_press)
+menubar.add_cascade(label="Valuta Váltó", command=valuta_menu_button_press)
+menubar.add_cascade(label="Valorant Line-up Guide", command=valorant_menu_button_press)
+menubar.add_cascade(label="QR kód generátor", command=qrcode_menu_button_press)
+menubar.add_cascade(label="Jelszó generátor", command=jelszo_menu_button_press)
+menubar.add_cascade(label="Naptár", command=naptar_menu_button_press)
+menubar.add_cascade(label="Iraki óra", command=iraki_menu_button_press)
 akszto=Menu(menubar, tearoff=0)
 valuta=Menu(menubar, tearoff=0)
 valolineup=Menu(menubar, tearoff=0)

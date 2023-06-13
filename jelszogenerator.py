@@ -2,21 +2,47 @@ from tkinter import *
 import tkinter
 import random
 import tkinter as tk
+import subprocess
 
-ablak1 = tkinter.Tk()
-ablak1.title("Jelszó generátor")
-ablak1.geometry("665x400")
+def kezdooldal_menu_button_press():
+    subprocess.Popen(args=['python', r'kezdőoldal.py'])
+    ablak.destroy()
+def akasztofa_menu_button_press():
+    subprocess.Popen(args=['python', r'akasztofa.py'])
+    ablak.destroy()
+def valuta_menu_button_press():
+    subprocess.Popen(args=['python', r'valutavalto.py'])
+    ablak.destroy()
+def valorant_menu_button_press():
+    subprocess.Popen(args=['python', r'valorantguide.py'])
+    ablak.destroy()
+def qrcode_menu_button_press():
+    subprocess.Popen(args=['python', r'qrcodegen.py'])
+    ablak.destroy()
+def jelszo_menu_button_press():
+    subprocess.Popen(args=['python', r'jelszogenerator.py'])
+    ablak.destroy()
+def naptar_menu_button_press():
+      subprocess.Popen(args=['python', r'naptar.py'])
+      ablak.destroy()
+def iraki_menu_button_press():
+    subprocess.Popen(args=['python', r'iraki_ora.py'])
+    ablak.destroy()
 
-menubar = Menu(ablak1)
+ablak = tkinter.Tk()
+ablak.title("Jelszó generátor")
+ablak.geometry("665x400")
+
+menubar = Menu(ablak)
 Kezdőoldalmenu = Menu(menubar, tearoff=0)
-menubar.add_cascade(label="Kezdőoldal")
-menubar.add_cascade(label="Akasztófa")
-menubar.add_cascade(label="Valuta Váltó")
-menubar.add_cascade(label="Valorant Line-up Guide")
-menubar.add_cascade(label="QR kód generátor")
-menubar.add_cascade(label="Jelszó generátor")
-menubar.add_cascade(label="Naptár")
-aksztofa=menubar.add_cascade(label="Iraki óra")
+menubar.add_cascade(label="Kezdőoldal", command=kezdooldal_menu_button_press)
+menubar.add_cascade(label="Akasztófa", command=akasztofa_menu_button_press)
+menubar.add_cascade(label="Valuta Váltó", command=valuta_menu_button_press)
+menubar.add_cascade(label="Valorant Line-up Guide", command=valorant_menu_button_press)
+menubar.add_cascade(label="QR kód generátor", command=qrcode_menu_button_press)
+menubar.add_cascade(label="Jelszó generátor", command=jelszo_menu_button_press)
+menubar.add_cascade(label="Naptár", command=naptar_menu_button_press)
+menubar.add_cascade(label="Iraki óra", command=iraki_menu_button_press)
 akszto=Menu(menubar, tearoff=0)
 valuta=Menu(menubar, tearoff=0)
 valolineup=Menu(menubar, tearoff=0)
@@ -24,7 +50,7 @@ qrkodgen=Menu(menubar, tearoff=0)
 jelszogen=Menu(menubar, tearoff=0)
 naptar=Menu(menubar, tearoff=0)
 irakiora=Menu(menubar, tearoff=0)
-ablak1.config(menu=menubar)
+ablak.config(menu=menubar)
 
 
 
@@ -68,28 +94,28 @@ def password():
 
 pswrd = StringVar()
 pswrd.set(password())
-txt_1 = tkinter.Entry(ablak1, textvariable=pswrd, font=("ComicSansMS", 14))
+txt_1 = tkinter.Entry(ablak, textvariable=pswrd, font=("ComicSansMS", 14))
 
 def display_password():
     global txt_1
     txt_1.pack_forget()
     pswrd.set(password())
-    txt_1 = tkinter.Entry(ablak1, textvariable=pswrd, font=("ComicSansMS", 14), width=37, justify=CENTER)
+    txt_1 = tkinter.Entry(ablak, textvariable=pswrd, font=("ComicSansMS", 14), width=37, justify=CENTER)
     txt_1.pack()
 
 
-label_1 = tkinter.Label(ablak1, text="\nJelszó Generátor", font=("ComicSansMS", 20))
-label_2 = tkinter.Label(ablak1, text = "Legalább két obciót válassz ki! \n", font=("ComicSansMS", 10))
+label_1 = tkinter.Label(ablak, text="\nJelszó Generátor", font=("ComicSansMS", 20))
+label_2 = tkinter.Label(ablak, text = "Legalább két obciót válassz ki! \n", font=("ComicSansMS", 10))
 label_1.pack()
 label_2.pack()
 
-chkbutton_1 = tkinter.Checkbutton(ablak1, text='Számok', variable=cond1, onvalue=1, offvalue=0)
-chkbutton_2 = tkinter.Checkbutton(ablak1, text='Speciális karakterek', variable=cond2, onvalue=1, offvalue=0)
-chkbutton_3 = tkinter.Checkbutton(ablak1, text='Kisbetűk', variable=cond3, onvalue=1, offvalue=0)
-chkbutton_4 = tkinter.Checkbutton(ablak1, text='Nagybetűk', variable=cond4, onvalue=1, offvalue=0)
-slider_1 = tkinter.Scale(ablak1, variable=length, orient=HORIZONTAL, label="Jelszó hossza", length=130,from_=8, to=30)
-button_1 = tkinter.Button(ablak1, text="Jelszó generálása", command=display_password)
-button_2 = tkinter.Button(ablak1, text="Jelszó másolás [Még nem működik]")
+chkbutton_1 = tkinter.Checkbutton(ablak, text='Számok', variable=cond1, onvalue=1, offvalue=0)
+chkbutton_2 = tkinter.Checkbutton(ablak, text='Speciális karakterek', variable=cond2, onvalue=1, offvalue=0)
+chkbutton_3 = tkinter.Checkbutton(ablak, text='Kisbetűk', variable=cond3, onvalue=1, offvalue=0)
+chkbutton_4 = tkinter.Checkbutton(ablak, text='Nagybetűk', variable=cond4, onvalue=1, offvalue=0)
+slider_1 = tkinter.Scale(ablak, variable=length, orient=HORIZONTAL, label="Jelszó hossza", length=130,from_=8, to=30)
+button_1 = tkinter.Button(ablak, text="Jelszó generálása", command=display_password)
+button_2 = tkinter.Button(ablak, text="Jelszó másolás [Még nem működik]")
 
 chkbutton_1.pack()
 chkbutton_2.pack()
@@ -98,4 +124,4 @@ chkbutton_4.pack()
 slider_1.pack()
 button_1.pack()
 
-ablak1.mainloop()
+ablak.mainloop()

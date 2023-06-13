@@ -2,20 +2,46 @@ from tkinter import *
 from tkinter import messagebox
 from string import ascii_uppercase
 import random
+import subprocess
+from PIL import Image, ImageTk
 
+def kezdooldal_menu_button_press():
+    subprocess.Popen(args=['python', r'kezdőoldal.py'])
+    ablak.destroy()
+def akasztofa_menu_button_press():
+    subprocess.Popen(args=['python', r'akasztofa.py'])
+    ablak.destroy()
+def valuta_menu_button_press():
+    subprocess.Popen(args=['python', r'valutavalto.py'])
+    ablak.destroy()
+def valorant_menu_button_press():
+    subprocess.Popen(args=['python', r'valorantguide.py'])
+    ablak.destroy()
+def qrcode_menu_button_press():
+    subprocess.Popen(args=['python', r'qrcodegen.py'])
+    ablak.destroy()
+def jelszo_menu_button_press():
+    subprocess.Popen(args=['python', r'jelszogenerator.py'])
+    ablak.destroy()
+def naptar_menu_button_press():
+      subprocess.Popen(args=['python', r'naptar.py'])
+      ablak.destroy()
+def iraki_menu_button_press():
+    subprocess.Popen(args=['python', r'iraki_ora.py'])
+    ablak.destroy()
 
-window = Tk()
-menubar = Menu(window)
-window.geometry("600x270")
+ablak = Tk()
+menubar = Menu(ablak)
+ablak.geometry("600x270")
 Kezdőoldalmenu = Menu(menubar, tearoff=0)
-menubar.add_cascade(label="Kezdőoldal")
-menubar.add_cascade(label="Akasztófa")
-menubar.add_cascade(label="Valuta Váltó")
-menubar.add_cascade(label="Valorant Line-up Guide")
-menubar.add_cascade(label="QR kód generátor")
-menubar.add_cascade(label="Jelszó generátor")
-menubar.add_cascade(label="Naptár")
-aksztofa=menubar.add_cascade(label="Iraki óra")
+menubar.add_cascade(label="Kezdőoldal", command=kezdooldal_menu_button_press)
+menubar.add_cascade(label="Akasztófa", command=akasztofa_menu_button_press)
+menubar.add_cascade(label="Valuta Váltó", command=valuta_menu_button_press)
+menubar.add_cascade(label="Valorant Line-up Guide", command=valorant_menu_button_press)
+menubar.add_cascade(label="QR kód generátor", command=qrcode_menu_button_press)
+menubar.add_cascade(label="Jelszó generátor", command=jelszo_menu_button_press)
+menubar.add_cascade(label="Naptár", command=naptar_menu_button_press)
+menubar.add_cascade(label="Iraki óra", command=iraki_menu_button_press)
 akszto=Menu(menubar, tearoff=0)
 valuta=Menu(menubar, tearoff=0)
 valolineup=Menu(menubar, tearoff=0)
@@ -23,7 +49,7 @@ qrkodgen=Menu(menubar, tearoff=0)
 jelszogen=Menu(menubar, tearoff=0)
 naptar=Menu(menubar, tearoff=0)
 irakiora=Menu(menubar, tearoff=0)
-window.title('Akasztófa')
+ablak.title('Akasztófa')
 word_list= ['MUMBAI','DELHI','BANGLORE','HYDRABAD','AHMEDABAD','CHENNAI','KOLKATA','SURAT','PUNE','JAIPUR','AMRITSAR','ALLAHABAD','RANCHI',
             'LUCKNOW','KANPUR','NAGPUR','INDORE','THANE','BHOPAL','PATNA','GHAZIABAD','AGRA','FARIDABAD','MEERUT','RAJKOT','VARANASI','SRINAGAR',
             'RAIPUR','KOTA','JHANSI']
@@ -32,7 +58,6 @@ photos = [PhotoImage(file="kepek\hang1.png"), PhotoImage(file="kepek\hang2.png")
 PhotoImage(file="kepek\hang4.png"), PhotoImage(file="kepek\hang5.png"), PhotoImage(file="kepek\hang6.png"),
 PhotoImage(file="kepek\hang7.png"), PhotoImage(file="kepek\hang8.png"), PhotoImage(file="kepek\hang9.png"),
 PhotoImage(file="kepek\hang10.png"), PhotoImage(file="kepek\hang11.png")]
-
 
 
 
@@ -63,24 +88,24 @@ def guess(letter):
 			numberOfGuesses += 1
 			imgLabel.config(image=photos[numberOfGuesses])
 			if numberOfGuesses==10:
-					messagebox.showwarning("Eredmény","Játék Vége")
+					messagebox.showwarning("Eredmény","GiT GuD")
 
 
-imgLabel=Label(window)
+imgLabel=Label(ablak)
 imgLabel.grid(row=0, column=0, columnspan=3, padx=10, pady=40)
 
 
   
 lblWord = StringVar()
-Label(window, textvariable  =lblWord,font=('consolas 24 bold')).grid(row=0, column=3 ,columnspan=6,padx=10)
+Label(ablak, textvariable  =lblWord,font=('consolas 24 bold')).grid(row=0, column=3 ,columnspan=6,padx=10)
 
 n=0
 for c in ascii_uppercase:
-    Button(window, text=c, command=lambda c=c: guess(c), font=('Helvetica 18'), width=4).grid(row=1+n//9,column=n%9)
+    Button(ablak, text=c, command=lambda c=c: guess(c), font=('Helvetica 18'), width=4).grid(row=1+n//9,column=n%9)
     n+=1
 
-Button(window, text="New\nGame", command=lambda:newGame(), font=("Helvetica 10 bold")).grid(row=3, column=8)
+Button(ablak, text="New\nGame", command=lambda:newGame(), font=("Helvetica 10 bold")).grid(row=3, column=8)
 
 newGame()
-window.config(menu=menubar)
-window.mainloop()
+ablak.config(menu=menubar)
+ablak.mainloop()

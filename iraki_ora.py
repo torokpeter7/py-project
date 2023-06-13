@@ -2,12 +2,44 @@ from tkinter import *
 import time
 from tkinter import messagebox
 import os
+import subprocess
+import pygame
+
+def kezdooldal_menu_button_press():
+    subprocess.Popen(args=['python', r'kezdőoldal.py'])
+    ablak.destroy()
+def akasztofa_menu_button_press():
+    subprocess.Popen(args=['python', r'akasztofa.py'])
+    ablak.destroy()
+def valuta_menu_button_press():
+    subprocess.Popen(args=['python', r'valutavalto.py'])
+    ablak.destroy()
+def valorant_menu_button_press():
+    subprocess.Popen(args=['python', r'valorantguide.py'])
+    ablak.destroy()
+def qrcode_menu_button_press():
+    subprocess.Popen(args=['python', r'qrcodegen.py'])
+    ablak.destroy()
+def jelszo_menu_button_press():
+    subprocess.Popen(args=['python', r'jelszogenerator.py'])
+    ablak.destroy()
+def naptar_menu_button_press():
+      subprocess.Popen(args=['python', r'naptar.py'])
+      ablak.destroy()
+def iraki_menu_button_press():
+    subprocess.Popen(args=['python', r'iraki_ora.py'])
+    ablak.destroy()
+
+
+pygame.mixer.init()
 
 def bekapcsolas():
     try:
         temp =int(masodperc.get())
     except:
         hiba.set("Számot írj be kérlek!")
+    pygame.mixer.music.load("20 Second Timer Bomb Countdown With Sound.mp3")
+    pygame.mixer.music.play(loops=0)
     while temp>-1:
         mins,secs = divmod(temp,60)
         hours=0
@@ -20,22 +52,23 @@ def bekapcsolas():
         time.sleep(1)
         if (temp == 0):
             messagebox.showinfo('"Óra"', "Ez nem egy óra volt 💀 🧠 🤯")
-            os.system("shutdown /s /t 1")
+            #os.system("shutdown /s /t 1")
         temp -= 1
+
 
 ablak=Tk()
 ablak.geometry("665x400")
 ablak.title("Iraki óra")
 menubar = Menu(ablak)
 Kezdőoldalmenu = Menu(menubar, tearoff=0)
-menubar.add_cascade(label="Kezdőoldal")
-menubar.add_cascade(label="Akasztófa")
-menubar.add_cascade(label="Valuta Váltó")
-menubar.add_cascade(label="Valorant Line-up Guide")
-menubar.add_cascade(label="QR kód generátor")
-menubar.add_cascade(label="Jelszó generátor")
-menubar.add_cascade(label="Naptár")
-aksztofa=menubar.add_cascade(label="Iraki óra")
+menubar.add_cascade(label="Kezdőoldal", command=kezdooldal_menu_button_press)
+menubar.add_cascade(label="Akasztófa", command=akasztofa_menu_button_press)
+menubar.add_cascade(label="Valuta Váltó", command=valuta_menu_button_press)
+menubar.add_cascade(label="Valorant Line-up Guide", command=valorant_menu_button_press)
+menubar.add_cascade(label="QR kód generátor", command=qrcode_menu_button_press)
+menubar.add_cascade(label="Jelszó generátor", command=jelszo_menu_button_press)
+menubar.add_cascade(label="Naptár", command=naptar_menu_button_press)
+menubar.add_cascade(label="Iraki óra", command=iraki_menu_button_press)
 akszto=Menu(menubar, tearoff=0)
 valuta=Menu(menubar, tearoff=0)
 valolineup=Menu(menubar, tearoff=0)
@@ -53,26 +86,10 @@ masodperc.set("15")
 óraEntry=Label(ablak, width=3, font=("Arial", 18,""), textvariable=óra)
 percEntry=Label(ablak, width=3, font=("Arial", 18,""), textvariable=perc)
 masodpercEntry=Label(ablak, width=3, font=("Arial", 18,""), textvariable=masodperc)
-ember1=Label(ablak,text="Ember 1: Mit vettél már megint?? 🤔")
-ember2=Label(ablak,text="Ember 2: Ohh, ez csak egy ébresztőóra! 👌")
-ember1a=Label(ablak,text="Ember 1: Ahha, na akkor próbáljuk ki! 🙌")
-ember2a=Label(ablak,text="Ember 2: Jó! 👍")
-ember1b=Label(ablak,text="Ember 1: Öhmm miért számol visszafele, mármint tudom, hogy ébresztő, de miért pittyeg közben? 😮")
-ember2b=Label(ablak,text="Ember 2: Na ezt mondjuk nem tudom, de az eladó egy nagyon barátságos iraki úriember volt. 🐵")
-ember1vege=Label(ablak,text="Ember 1: Szerintem ez nem egy ébresztő óra. 😭😭😭")
-ember2vege=Label(ablak, text="Ember 2: Hát nem valószí- 💀")
 óraEntry.place(x=260, y=100)
 percEntry.place(x=310, y=100)
 masodpercEntry.place(x=360, y=100)
 gomb=Button(ablak, text="Bekapcsolás", bd="5",command=bekapcsolas)
 gomb.place(x=293, y=150)
-ember1.place(x=250, y=220)
-ember2.place(x=240, y=240)
-ember1a.place(x=240, y=260)
-ember2a.place(x=300, y=280)
-ember1b.place(x=55, y=300)
-ember2b.place(x=70, y=320)
-ember1vege.place(x=200, y=340)
-ember2vege.place(x=270, y=360)
 ablak.config(menu=menubar)
 ablak.mainloop()
