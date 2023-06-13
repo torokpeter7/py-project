@@ -3,6 +3,7 @@ import tkinter
 import random
 import tkinter as tk
 import subprocess
+from tkinter import messagebox
 
 def kezdooldal_menu_button_press():
     subprocess.Popen(args=['python', r'kezdőoldal.py'])
@@ -52,19 +53,11 @@ naptar=Menu(menubar, tearoff=0)
 irakiora=Menu(menubar, tearoff=0)
 ablak.config(menu=menubar)
 
-#combo = tk.Combobox()
-#Lista
-euro_huf = []
-huf_euro = []
-
-txt1 = Label(ablak, text="RŐL:")
-txt2 = Label(ablak, text="RA:")
-ertek = Label(ablak, text="Érték")
-#combo = tk.Combobox(
-    #state="readonly",
-    #values=["Euro","HUF"])
-
-input = Entry(ablak, )
-
+def lusta():
+    messagebox.showwarning("Még fejlesztés alatt", "Túl lusta megcsinálni sajnos, tipik TP 💀 \n Átirányítunk egy már kész állapotban lévő oldalra.")
+    subprocess.Popen(args=["python", r"kezdőoldal.py"])
+    ablak.destroy()
+button1=Button(ablak, text="Még fejlesztés alatt", command=lusta)
+button1.pack()
 
 ablak.mainloop()

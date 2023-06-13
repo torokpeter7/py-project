@@ -81,7 +81,7 @@ def iraki_menu_button_press():
     ablak.destroy()
 ablak=Tk()
 ablak.geometry("665x400")
-ablak.title("Iraki óra")
+ablak.title("QR kód generátor")
 menubar = Menu(ablak)
 Kezdőoldalmenu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label="Kezdőoldal", command=kezdooldal_menu_button_press)

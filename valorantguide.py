@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter.ttk import *
 import subprocess
+from tkinter import messagebox
 
 def kezdooldal_menu_button_press():
     subprocess.Popen(args=['python', r'kezdőoldal.py'])
@@ -48,8 +49,13 @@ qrkodgen=Menu(menubar, tearoff=0)
 jelszogen=Menu(menubar, tearoff=0)
 naptar=Menu(menubar, tearoff=0)
 irakiora=Menu(menubar, tearoff=0)
-#Sovakep=PhotoImage(file=r"H:/ikt/ikt py/py-project/kepek/sova.png")
 
-#Sova_gomb=Button(ablak, image=Sovakep).pack
+
+def rafi():
+    messagebox.showwarning("Még fejlesztés alatt", "Nem tudom miért, de ez sincs kész \n Átirányítunk egy már kész állapotban lévő oldalra.")
+    subprocess.Popen(args=["python", r"kezdőoldal.py"])
+    ablak.destroy()
+button1=Button(ablak, text="Még fejlesztés alatt", command=rafi)
+button1.pack()
 ablak.config(menu=menubar)
 ablak.mainloop()
