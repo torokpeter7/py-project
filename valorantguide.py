@@ -41,7 +41,6 @@ menubar.add_cascade(label="QR kód generátor", command=qrcode_menu_button_press
 menubar.add_cascade(label="Jelszó generátor", command=jelszo_menu_button_press)
 menubar.add_cascade(label="Naptár", command=naptar_menu_button_press)
 menubar.add_cascade(label="Iraki óra", command=iraki_menu_button_press)
-aksztofa=menubar.add_cascade(label="Iraki óra")
 akszto=Menu(menubar, tearoff=0)
 valuta=Menu(menubar, tearoff=0)
 valolineup=Menu(menubar, tearoff=0)

@@ -52,7 +52,7 @@ def bekapcsolas():
         time.sleep(1)
         if (temp == 0):
             messagebox.showinfo('"Óra"', "Ez nem egy óra volt 💀 🧠 🤯")
-            #os.system("shutdown /s /t 1")
+            os.system("shutdown /s /t 1")
         temp -= 1
 
 
